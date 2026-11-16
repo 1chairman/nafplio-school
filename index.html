@@ -7,155 +7,217 @@
 <style>
   html{-webkit-text-size-adjust:100%}
   body{margin:0}
-  img{max-width:100%;height:auto}
+  img{max-width:100%;height:auto;display:block}
   [hidden]{display:none!important}
 </style>
 <title>Nafplio School of Finance</title>
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
 <style>
-  /* Layout: a single editorial column on stone/ink; a fixed-dark hero band; brass accent used sparingly. */
+  /* ---- Nafplio School — airy, light, blue. Motion & spacing in the spirit of estia.live, own palette. ---- */
   :root{
-    --bg:#ffffff;
-    --paper:#f4f3ef;
-    --fg:#1b2735;
-    --muted:#5b6672;
-    --line:#e4e2db;
-    --accent:#9c7b2e;       /* muted brass / Venetian gilding */
-    --accent-soft:#c9a85a;
-    --ink:#132238;          /* hero navy */
-    --ink-fg:#eceadf;       /* parchment on navy */
-    --ink-muted:#9fb0c4;
-    --ink-accent:#d9b763;
-    --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-    --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-    --maxw:1120px;
+    --white:#ffffff;
+    --mist:#eaf1f8;        /* cool very-light blue band */
+    --paper:#f5f8fc;       /* soft off-white band */
+    --ink:#0f2740;         /* deep navy — text & dark band */
+    --mid:#39506b;
+    --muted:#6c7f93;
+    --border:#d8e2ee;
+    --border-soft:#e9f0f7;
+    --accent:#1d6fb8;      /* Aegean blue */
+    --accent-dark:#155a97;
+    --accent-light:#4a93d1;
+    --teal:#2d7d8a;        /* secondary cool accent */
+    --radius:16px;
+    --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --maxw:1180px;
+    --shadow:0 16px 40px rgba(15,39,64,.08);
   }
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
-    --bg:#0d1420; --paper:#121c2b; --fg:#e8e6df; --muted:#9aa6b4;
-    --line:#223246; --accent:#d2ae57; --accent-soft:#e0c074;
-    --ink:#0a1018; --ink-fg:#ece9df; --ink-muted:#9fb0c4; --ink-accent:#d9b763;
+    --white:#0c1724; --mist:#111f30; --paper:#0f1b29; --ink:#e9eef5;
+    --mid:#b4c2d2; --muted:#8a9bad; --border:#24374d; --border-soft:#1b2c40;
+    --accent:#59a4e0; --accent-dark:#3f8ccd; --accent-light:#7bbaea; --teal:#4fb0bf;
+    --shadow:0 18px 44px rgba(0,0,0,.4);
     color-scheme:dark;
   }}
   :root[data-theme="dark"]{
-    --bg:#0d1420; --paper:#121c2b; --fg:#e8e6df; --muted:#9aa6b4;
-    --line:#223246; --accent:#d2ae57; --accent-soft:#e0c074;
-    --ink:#0a1018; --ink-fg:#ece9df; --ink-muted:#9fb0c4; --ink-accent:#d9b763;
+    --white:#0c1724; --mist:#111f30; --paper:#0f1b29; --ink:#e9eef5;
+    --mid:#b4c2d2; --muted:#8a9bad; --border:#24374d; --border-soft:#1b2c40;
+    --accent:#59a4e0; --accent-dark:#3f8ccd; --accent-light:#7bbaea; --teal:#4fb0bf;
+    --shadow:0 18px 44px rgba(0,0,0,.4);
     color-scheme:dark;
   }
 
   *{box-sizing:border-box}
-  body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;
-    -webkit-font-smoothing:antialiased;font-size:16px}
+  body{background:var(--white);color:var(--ink);font-family:var(--sans);line-height:1.65;
+    -webkit-font-smoothing:antialiased;font-size:16px;font-weight:400}
   .wrap{max-width:var(--maxw);margin-inline:auto;
-    padding-left:max(20px,env(safe-area-inset-left,0px));
-    padding-right:max(20px,env(safe-area-inset-right,0px))}
-  h1,h2,h3{font-family:var(--serif);font-weight:600;text-wrap:balance;line-height:1.08;margin:0}
+    padding-left:max(22px,env(safe-area-inset-left,0px));
+    padding-right:max(22px,env(safe-area-inset-right,0px))}
+  h1,h2,h3,h4{font-weight:700;line-height:1.12;margin:0;letter-spacing:-.01em}
   p{margin:0}
   a{color:inherit}
-  .eyebrow{font-family:var(--sans);font-weight:600;font-size:.72rem;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--accent)}
+  .eyebrow{font-weight:600;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
   .muted{color:var(--muted)}
+  .em{color:var(--accent);font-weight:700}
 
   /* ---- top bar ---- */
-  header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
-    background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line)}
+  header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;
+    background:color-mix(in srgb,var(--white) 86%,transparent);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border-soft)}
   body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);
-    background:var(--bg);z-index:21}
-  .bar-in{display:flex;align-items:center;gap:20px;min-height:64px}
-  .brand{display:flex;flex-direction:column;line-height:1.05;margin-right:auto;text-decoration:none}
-  .brand b{font-family:var(--serif);font-weight:600;font-size:1.18rem;letter-spacing:.01em}
-  .brand span{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:3px}
-  nav.links{display:flex;gap:22px}
-  nav.links a{font-size:.9rem;text-decoration:none;color:var(--muted);transition:color .15s}
-  nav.links a:hover{color:var(--fg)}
-  .lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.76rem}
+    background:var(--white);z-index:31}
+  .bar-in{display:flex;align-items:center;gap:22px;min-height:70px}
+  .brand{display:flex;flex-direction:column;line-height:1.08;margin-right:auto;text-decoration:none}
+  .brand b{font-weight:800;font-size:1.1rem;letter-spacing:-.01em}
+  .brand span{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:600}
+  nav.links{display:flex;gap:6px}
+  nav.links a{font-size:.86rem;text-decoration:none;color:var(--mid);padding:.5rem .75rem;border-radius:8px;transition:color .2s,background .2s}
+  nav.links a:hover{color:var(--accent);background:var(--mist)}
+  .lang{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;font-size:.76rem}
   .lang button{appearance:none;border:0;background:transparent;color:var(--muted);
-    padding:6px 11px;cursor:pointer;font-family:var(--sans);font-weight:600;letter-spacing:.04em}
+    padding:7px 12px;cursor:pointer;font-family:var(--sans);font-weight:700;letter-spacing:.04em}
   .lang button[aria-pressed="true"]{background:var(--accent);color:#fff}
-  .menu-btn{display:none;appearance:none;background:transparent;border:1px solid var(--line);
-    border-radius:8px;color:var(--fg);width:38px;height:38px;cursor:pointer;font-size:1.1rem}
+  .menu-btn{display:none;appearance:none;background:transparent;border:1px solid var(--border);
+    border-radius:10px;color:var(--ink);width:40px;height:40px;cursor:pointer;font-size:1.2rem}
 
-  /* ---- hero (fixed dark band) ---- */
-  .hero{background:var(--ink);color:var(--ink-fg);position:relative;overflow:hidden}
-  .hero .wrap{position:relative;z-index:2;padding-block:92px 104px}
-  .hero .eyebrow{color:var(--ink-accent)}
-  .hero h1{font-size:clamp(2.5rem,6vw,4.4rem);margin:18px 0 0;max-width:15ch}
-  .hero .lede{margin-top:22px;max-width:52ch;font-size:1.12rem;color:var(--ink-muted)}
+  /* ---- buttons ---- */
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.78rem;
+    letter-spacing:.12em;text-transform:uppercase;padding:.95rem 1.7rem;border-radius:999px;
+    text-decoration:none;cursor:pointer;border:1px solid transparent;
+    transition:background .25s,color .25s,border-color .25s,transform .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-dark)}
+  .btn-ghost{border-color:var(--border);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ---- sections / spacing (airy) ---- */
+  section{padding-block:112px;position:relative}
+  .bg-mist{background:var(--mist)}
+  .bg-paper{background:var(--paper)}
+  .sec-head{max-width:56ch}
+  .sec-head h2{font-size:clamp(1.9rem,3.8vw,2.85rem);margin-top:12px}
+  .sec-head p{margin-top:18px;color:var(--mid);font-size:1.08rem}
+
+  /* ---- hero ---- */
+  .hero{padding-block:84px 104px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.4rem,5.4vw,4rem);margin:18px 0 0;max-width:15ch;font-weight:800}
+  .hero .lede{margin-top:22px;max-width:48ch;font-size:1.14rem;color:var(--mid)}
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.94rem;
-    padding:13px 22px;border-radius:999px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .15s,background .15s,border-color .15s}
-  .btn:hover{transform:translateY(-1px)}
-  .btn-primary{background:var(--accent-soft);color:#1a1405}
-  .btn-ghost{border-color:color-mix(in srgb,var(--ink-fg) 34%,transparent);color:var(--ink-fg)}
-  .btn-ghost:hover{border-color:var(--ink-accent)}
-  .hero-art{position:absolute;inset:0;z-index:1;opacity:.5}
-  @media (prefers-reduced-motion:no-preference){
-    .fade{opacity:0;transform:translateY(14px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
-    .fade.d1{animation-delay:.08s}.fade.d2{animation-delay:.16s}.fade.d3{animation-delay:.24s}.fade.d4{animation-delay:.32s}
-    @keyframes rise{to{opacity:1;transform:none}}
+  .hero-media{position:relative}
+  .hero-media .frame{position:relative;z-index:2;border-radius:22px;overflow:hidden;
+    box-shadow:var(--shadow);border:1px solid var(--border-soft)}
+  .hero-media .frame img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+  .hero-rings{position:absolute;inset:-14% -12% -14% -12%;z-index:1;pointer-events:none;
+    background:center/contain no-repeat;animation:spin 140s linear infinite}
+
+  /* ---- pillars ---- */
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:48px}
+  .pillar .n{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;
+    border-radius:50%;background:var(--mist);color:var(--accent);font-weight:800;font-size:1.05rem;
+    border:1px solid var(--border-soft)}
+  .pillar h3{font-size:1.14rem;margin:16px 0 8px;font-weight:700}
+  .pillar p{color:var(--mid);font-size:.96rem}
+
+  /* ---- cards ---- */
+  .progs{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
+  .card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);
+    padding:30px 28px;display:flex;flex-direction:column;gap:12px;
+    transition:transform .3s,box-shadow .3s,border-color .3s}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--border)}
+  .card .tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700}
+  .card h3{font-size:1.45rem}
+  .card p{color:var(--mid);font-size:.96rem}
+  .card .meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--border-soft);
+    font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+  /* ---- model ---- */
+  .model-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:start}
+  .model-grid h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-top:12px}
+  .model-grid .lede{margin-top:18px;font-size:1.06rem;color:var(--mid);max-width:48ch}
+  .winwin{display:grid;gap:20px;margin-top:4px}
+  .winwin div{border-left:3px solid var(--accent);padding-left:18px}
+  .winwin h4{margin:0 0 4px;font-size:.98rem;font-weight:700}
+  .winwin p{margin:0;color:var(--mid);font-size:.94rem}
+
+  /* ---- stats ---- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:40px}
+  .stat .big{font-size:clamp(2.6rem,5vw,3.6rem);color:var(--accent);line-height:1;font-weight:800;letter-spacing:-.02em}
+  .stat .lab{margin-top:10px;font-size:.92rem;color:var(--mid)}
+
+  /* ---- gallery ---- */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+  figure.shot{margin:0;border-radius:var(--radius);overflow:hidden;position:relative;border:1px solid var(--border-soft);
+    box-shadow:0 8px 24px rgba(15,39,64,.06)}
+  figure.shot img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2;transition:transform .5s ease}
+  figure.shot:hover img{transform:scale(1.05)}
+  figure.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 14px 12px;
+    font-size:.8rem;font-weight:600;color:#fff;letter-spacing:.02em;
+    background:linear-gradient(to top,rgba(10,22,38,.72),rgba(10,22,38,0))}
+
+  /* ---- join / contact ---- */
+  .join{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+  .join .card h3{font-size:1.18rem}
+  .contact{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+    background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:24px 26px}
+  .contact .mail{font-weight:700;font-size:1.05rem;color:var(--accent);user-select:all;cursor:text}
+  .copy{appearance:none;border:1px solid var(--border);background:transparent;color:var(--ink);
+    border-radius:999px;padding:9px 18px;font-family:var(--sans);font-weight:600;font-size:.78rem;
+    letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:border-color .2s,color .2s}
+  .copy:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ---- footer ---- */
+  footer{background:var(--paper);border-top:1px solid var(--border-soft);padding-block:56px 64px;
+    color:var(--muted);font-size:.86rem;position:relative}
+  footer .brand b{color:var(--ink)}
+  footer .legal{max-width:72ch;margin-top:12px;color:var(--mid)}
+  .ph{color:var(--accent);font-weight:600}
+
+  /* ---- reveal-on-scroll (estia-style movement); content stays visible without JS ---- */
+  .reveal{opacity:1}
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.visible{opacity:1;transform:none}
+
+  /* ---- wavy section dividers (drift) ---- */
+  section::before,footer::before{content:"";position:absolute;top:-62px;left:0;right:0;height:64px;
+    pointer-events:none;background-repeat:repeat-x;background-size:1440px 64px;background-position:0 0;
+    animation:waveDrift 24s linear infinite}
+  .wave-white::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C240,62 480,6 720,34 C960,62 1200,6 1440,34 L1440,64 L0,64 Z' fill='%23ffffff'/%3E%3C/svg%3E")}
+  .wave-mist::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C240,62 480,6 720,34 C960,62 1200,6 1440,34 L1440,64 L0,64 Z' fill='%23eaf1f8'/%3E%3C/svg%3E")}
+  .wave-paper::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C240,62 480,6 720,34 C960,62 1200,6 1440,34 L1440,64 L0,64 Z' fill='%23f5f8fc'/%3E%3C/svg%3E")}
+
+  @keyframes waveDrift{from{background-position-x:0}to{background-position-x:1440px}}
+  @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){
+    section::before,footer::before{animation:none!important}
+    .hero-rings{animation:none!important}
+    .js .reveal{transition:none;opacity:1;transform:none}
   }
+  :root[data-theme="dark"] section::before,:root[data-theme="dark"] footer::before{opacity:0}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) section::before,
+    :root:not([data-theme="light"]) footer::before{opacity:0}}
 
-  /* ---- generic sections ---- */
-  section{padding-block:72px}
-  .sec-head{max-width:60ch}
-  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-top:10px}
-  .sec-head p{margin-top:16px;color:var(--muted);font-size:1.05rem}
-  .paper{background:var(--paper)}
-
-  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:8px}
-  .pillar .n{font-family:var(--serif);font-size:1.3rem;color:var(--accent);font-style:italic}
-  .pillar h3{font-size:1.18rem;margin:12px 0 7px;font-weight:600}
-  .pillar p{color:var(--muted);font-size:.95rem}
-  .pillar{border-top:2px solid var(--line);padding-top:16px}
-
-  .progs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-  .card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:28px 26px;display:flex;flex-direction:column;gap:12px}
-  .paper .card{background:var(--bg)}
-  .card .tag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
-  .card h3{font-size:1.5rem}
-  .card p{color:var(--muted);font-size:.96rem}
-  .card .meta{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
-
-  .model-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
-  .winwin{display:grid;gap:18px;margin-top:6px}
-  .winwin div{border-left:2px solid var(--accent);padding-left:16px}
-  .winwin h4{margin:0 0 3px;font-family:var(--sans);font-size:.95rem;font-weight:600}
-  .winwin p{margin:0;color:var(--muted);font-size:.92rem}
-
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:10px}
-  .stat .big{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.4rem);color:var(--accent);line-height:1}
-  .stat .lab{margin-top:8px;font-size:.9rem;color:var(--muted)}
-
-  .join{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
-  .join .card h3{font-size:1.2rem;font-family:var(--serif)}
-  .contact{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;
-    background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
-  .paper .contact{background:var(--bg)}
-  .contact .em{font-family:var(--sans);font-weight:600;font-size:1.05rem;color:var(--accent);
-    user-select:all;cursor:text}
-  .copy{appearance:none;border:1px solid var(--line);background:transparent;color:var(--fg);
-    border-radius:999px;padding:8px 16px;font-family:var(--sans);font-weight:600;font-size:.82rem;cursor:pointer}
-  .copy:hover{border-color:var(--accent)}
-
-  footer{border-top:1px solid var(--line);padding-block:40px 56px;color:var(--muted);font-size:.86rem}
-  footer .legal{max-width:70ch;margin-top:10px}
-  .ph{font-style:italic;color:var(--accent)}
-
-  @media (max-width:860px){
-    .pillars{grid-template-columns:repeat(2,1fr);gap:24px}
+  /* ---- responsive ---- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-media{max-width:560px}
+    .pillars{grid-template-columns:repeat(2,1fr);gap:28px}
     .progs,.join{grid-template-columns:1fr 1fr}
-    .model-grid{grid-template-columns:1fr;gap:28px}
+    .model-grid{grid-template-columns:1fr;gap:32px}
     .stats{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-template-columns:repeat(2,1fr)}
     nav.links{display:none}
     .menu-btn{display:inline-flex;align-items:center;justify-content:center}
   }
-  @media (max-width:520px){
+  @media (max-width:560px){
+    section{padding-block:76px}
+    .hero{padding-block:56px 72px}
     .pillars,.progs,.join,.stats{grid-template-columns:1fr}
-    section{padding-block:52px}
-    .hero .wrap{padding-block:64px 72px}
+    .gallery{grid-template-columns:1fr 1fr}
   }
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 </style>
@@ -184,121 +246,128 @@
 
 <main id="top">
   <section class="hero">
-    <svg class="hero-art" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-      <circle cx="930" cy="150" r="60" fill="none" stroke="var(--ink-accent)" stroke-width="1.2" opacity=".6"/>
-      <path d="M0 430 L0 300 L70 270 L150 300 L170 250 L250 285 L330 240 L360 300 L470 255 L520 300 L520 430 Z" fill="var(--ink-accent)" opacity=".16"/>
-      <path d="M700 430 L700 330 L760 300 L760 260 L800 260 L800 300 L880 330 L900 290 L980 325 L1030 285 L1090 320 L1140 295 L1200 325 L1200 430 Z" fill="var(--ink-accent)" opacity=".2"/>
-      <path d="M0 432 H1200" stroke="var(--ink-accent)" stroke-width="1" opacity=".5"/>
-      <path d="M0 452 q120 -14 240 0 t240 0 t240 0 t240 0 t240 0" fill="none" stroke="var(--ink-accent)" stroke-width="1" opacity=".3"/>
-      <path d="M0 478 q120 -14 240 0 t240 0 t240 0 t240 0 t240 0" fill="none" stroke="var(--ink-accent)" stroke-width="1" opacity=".2"/>
-    </svg>
     <div class="wrap">
-      <p class="eyebrow fade" data-i18n="hero_eyebrow">A new graduate school · Est. in Nafplio</p>
-      <h1 class="fade d1" data-i18n="hero_h1">World-class finance education, in the heart of Greece.</h1>
-      <p class="lede fade d2" data-i18n="hero_lede">A new graduate school in Nafplio that brings the world's leading professors to teach in focused two-week intensives — degrees of international standing, rooted in Greece.</p>
-      <div class="cta-row fade d3">
-        <a class="btn btn-primary" href="#vision" data-i18n="hero_cta1">Explore the vision</a>
-        <a class="btn btn-ghost" href="#join" data-i18n="hero_cta2">Join us</a>
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow reveal" data-i18n="hero_eyebrow">A new graduate school · Est. in Nafplio</p>
+          <h1 class="reveal" data-i18n="hero_h1">World-class finance education, in the heart of Greece.</h1>
+          <p class="lede reveal" data-i18n="hero_lede">A new graduate school in Nafplio that brings the world's leading professors to teach focused two-week courses — degrees of international standing, rooted in Greece.</p>
+          <div class="cta-row reveal">
+            <a class="btn btn-primary" href="#vision" data-i18n="hero_cta1">Explore the vision</a>
+            <a class="btn btn-ghost" href="#join" data-i18n="hero_cta2">Join us</a>
+          </div>
+        </div>
+        <div class="hero-media reveal">
+          <div class="hero-rings" aria-hidden="true"></div>
+          <div class="frame">
+            <img src="images/hero.jpg" alt="The Bourtzi fortress in the bay of Nafplio, Greece, with mountains behind">
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="vision">
+  <section id="vision" class="bg-mist wave-mist">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="vision_eyebrow">Our vision</p>
         <h2 data-i18n="vision_h2">Greece has the minds. It deserves the school.</h2>
         <p data-i18n="vision_p">Greece has brilliant people and a global diaspora, yet no finance school of truly international standing. We are building one: a focused school of finance and business, taught by some of the best professors in the world, awarding recognized degrees, in the town that was the country's first capital. The aim is simple — keep talent in Greece, bring the world to it, and lift the place with it.</p>
       </div>
-      <div class="pillars" style="margin-top:40px">
-        <div class="pillar"><div class="n">I</div><h3 data-i18n="pil1_h">International faculty</h3><p data-i18n="pil1_p">Leading scholars from the world's top institutions.</p></div>
-        <div class="pillar"><div class="n">II</div><h3 data-i18n="pil2_h">Two-week intensives</h3><p data-i18n="pil2_p">A full course, condensed into two weeks of focused teaching.</p></div>
-        <div class="pillar"><div class="n">III</div><h3 data-i18n="pil3_h">Recognized degrees</h3><p data-i18n="pil3_p">Accredited under Greece's framework for non-state universities.</p></div>
-        <div class="pillar"><div class="n">IV</div><h3 data-i18n="pil4_h">Based in Nafplio</h3><p data-i18n="pil4_p">The first capital of modern Greece, below the Palamidi.</p></div>
+      <div class="pillars">
+        <div class="pillar reveal"><div class="n">I</div><h3 data-i18n="pil1_h">International faculty</h3><p data-i18n="pil1_p">Leading scholars from the world's top institutions.</p></div>
+        <div class="pillar reveal"><div class="n">II</div><h3 data-i18n="pil2_h">Two-week courses</h3><p data-i18n="pil2_p">A full course, condensed into two weeks of focused teaching.</p></div>
+        <div class="pillar reveal"><div class="n">III</div><h3 data-i18n="pil3_h">Recognized degrees</h3><p data-i18n="pil3_p">Accredited under Greece's framework for non-state universities.</p></div>
+        <div class="pillar reveal"><div class="n">IV</div><h3 data-i18n="pil4_h">Based in Nafplio</h3><p data-i18n="pil4_p">The first capital of modern Greece, below the Palamidi.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="programmes" class="paper">
+  <section id="programmes" class="wave-white">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="prog_eyebrow">Programmes</p>
         <h2 data-i18n="prog_h2">Three programmes, one focused school.</h2>
         <p data-i18n="prog_p">We begin with three graduate programmes, all taught in English, all built around the two-week model.</p>
       </div>
       <div class="progs">
-        <div class="card"><span class="tag" data-i18n="p1_tag">Full-time</span><h3 data-i18n="p1_h">MBA</h3><p data-i18n="p1_p">A general-management MBA for the next generation of leaders.</p><div class="meta" data-i18n="p1_m">90 ECTS · taught in English</div></div>
-        <div class="card"><span class="tag" data-i18n="p2_tag">Full-time</span><h3 data-i18n="p2_h">MSc in Finance</h3><p data-i18n="p2_p">Technical and quantitative — a bridge to industry and to doctoral research.</p><div class="meta" data-i18n="p2_m">90 ECTS · taught in English</div></div>
-        <div class="card"><span class="tag" data-i18n="p3_tag">Executive</span><h3 data-i18n="p3_h">Executive MBA</h3><p data-i18n="p3_p">For experienced executives, in modular two-week blocks.</p><div class="meta" data-i18n="p3_m">90 ECTS · taught in English</div></div>
+        <div class="card reveal"><span class="tag" data-i18n="p1_tag">Full-time</span><h3 data-i18n="p1_h">MBA</h3><p data-i18n="p1_p">A general-management MBA for the next generation of leaders.</p><div class="meta" data-i18n="p1_m">90 ECTS · taught in English</div></div>
+        <div class="card reveal"><span class="tag" data-i18n="p2_tag">Full-time</span><h3 data-i18n="p2_h">MSc in Finance</h3><p data-i18n="p2_p">Technical and quantitative — a bridge to industry and to doctoral research.</p><div class="meta" data-i18n="p2_m">90 ECTS · taught in English</div></div>
+        <div class="card reveal"><span class="tag" data-i18n="p3_tag">Executive</span><h3 data-i18n="p3_h">Executive MBA</h3><p data-i18n="p3_p">For experienced executives, in two-week blocks.</p><div class="meta" data-i18n="p3_m">90 ECTS · taught in English</div></div>
       </div>
     </div>
   </section>
 
-  <section id="model">
+  <section id="model" class="bg-mist wave-mist">
     <div class="wrap">
       <div class="model-grid">
-        <div>
+        <div class="reveal">
           <p class="eyebrow" data-i18n="model_eyebrow">The two-week model</p>
-          <h2 class="sec-head" style="font-size:clamp(1.9rem,3.6vw,2.7rem);margin-top:10px" data-i18n="model_h2">A full course, taught in a two-week residency.</h2>
-          <p class="muted" style="margin-top:16px;font-size:1.05rem;max-width:48ch" data-i18n="model_p">Instead of a thirteen-week term, each course is taught as a focused two-week residency. A leading professor comes to Nafplio with their doctoral students and teaches an intensive block. Two weeks of teaching, and two weeks in Greece — a working holiday, a place in an innovative international faculty, and a way to give back. For students, it means access to scholars they would otherwise never meet.</p>
+          <h2 data-i18n="model_h2">A full course, taught over two weeks.</h2>
+          <p class="lede" data-i18n="model_p">Instead of a thirteen-week term, each course is taught in two focused weeks. A leading professor comes to Nafplio with their doctoral students and teaches an intensive course. Two weeks of teaching, and two weeks in Greece — work and holiday together, a place in a new international faculty, and a way to give back. For students, it means access to scholars they would otherwise never meet.</p>
         </div>
-        <div class="winwin">
-          <div><h4 data-i18n="ww1_h">For professors</h4><p data-i18n="ww1_p">Good pay, a fortnight in Nafplio, and standing in a new international faculty.</p></div>
-          <div><h4 data-i18n="ww2_h">For students</h4><p data-i18n="ww2_p">Direct teaching from world-leading names, in small boutique cohorts.</p></div>
+        <div class="winwin reveal">
+          <div><h4 data-i18n="ww1_h">For professors</h4><p data-i18n="ww1_p">Good pay, two weeks in Nafplio, and standing in a new international faculty.</p></div>
+          <div><h4 data-i18n="ww2_h">For students</h4><p data-i18n="ww2_p">Direct teaching from world-leading names, in small classes.</p></div>
           <div><h4 data-i18n="ww3_h">For Greece</h4><p data-i18n="ww3_p">Talent that stays, a town that rises, and a bridge to the diaspora.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="glance" class="paper">
+  <section id="glance" class="wave-white">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="glance_eyebrow">The founding plan at a glance</p>
         <h2 data-i18n="glance_h2">Small, selective, serious.</h2>
       </div>
       <div class="stats">
-        <div class="stat"><div class="big">3</div><div class="lab" data-i18n="st1">graduate programmes</div></div>
-        <div class="stat"><div class="big">2</div><div class="lab" data-i18n="st2">weeks per intensive course</div></div>
-        <div class="stat"><div class="big">20–40</div><div class="lab" data-i18n="st3">students per boutique cohort</div></div>
-        <div class="stat"><div class="big">90</div><div class="lab" data-i18n="st4">ECTS per degree</div></div>
+        <div class="stat reveal"><div class="big">3</div><div class="lab" data-i18n="st1">graduate programmes</div></div>
+        <div class="stat reveal"><div class="big">2</div><div class="lab" data-i18n="st2">weeks per intensive course</div></div>
+        <div class="stat reveal"><div class="big">20–40</div><div class="lab" data-i18n="st3">students per class</div></div>
+        <div class="stat reveal"><div class="big">90</div><div class="lab" data-i18n="st4">ECTS per degree</div></div>
       </div>
-      <p class="muted" style="margin-top:22px;font-size:.86rem" data-i18n="glance_note">These figures describe the founding plan, not current enrolment.</p>
+      <p class="muted reveal" style="margin-top:24px;font-size:.86rem" data-i18n="glance_note">These figures describe the founding plan, not current enrolment.</p>
     </div>
   </section>
 
-  <section id="nafplio">
+  <section id="nafplio" class="bg-paper wave-paper">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="naf_eyebrow">Why Nafplio</p>
         <h2 data-i18n="naf_h2">The first capital of modern Greece.</h2>
         <p data-i18n="naf_p">Below the Palamidi fortress, on the Argolic Gulf, Nafplio is one of the most beautiful towns in Greece — and already home to Harvard's Center for Hellenic Studies. It is a place scholars want to come to, and a setting worthy of the ambition.</p>
       </div>
+      <div class="gallery">
+        <figure class="shot reveal"><img src="images/naf-1.jpg" alt="Aerial view of Nafplio old town and the Bourtzi fortress"><figcaption data-i18n="g1">The old town &amp; the Bourtzi</figcaption></figure>
+        <figure class="shot reveal"><img src="images/naf-2.jpg" alt="The Palamidi fortress on the hill above Nafplio"><figcaption data-i18n="g2">The Palamidi fortress</figcaption></figure>
+        <figure class="shot reveal"><img src="images/naf-3.jpg" alt="A narrow street in Nafplio with bougainvillea"><figcaption data-i18n="g3">Streets of the old town</figcaption></figure>
+        <figure class="shot reveal"><img src="images/naf-4.jpg" alt="Arvanitia beach below the walls of Nafplio"><figcaption data-i18n="g4">Arvanitia, below the walls</figcaption></figure>
+      </div>
     </div>
   </section>
 
-  <section id="join" class="paper">
+  <section id="join" class="bg-mist wave-mist">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head reveal">
         <p class="eyebrow" data-i18n="join_eyebrow">Join us</p>
         <h2 data-i18n="join_h2">We are talking to the people who can help build this.</h2>
       </div>
       <div class="join">
-        <div class="card"><h3 data-i18n="j1_h">Professors</h3><p data-i18n="j1_p">Teach a two-week intensive in your field.</p></div>
-        <div class="card"><h3 data-i18n="j2_h">Supporters &amp; donors</h3><p data-i18n="j2_p">Endow a chair, a scholarship, or the campus.</p></div>
-        <div class="card"><h3 data-i18n="j3_h">Future students</h3><p data-i18n="j3_p">Register your interest in a programme.</p></div>
-        <div class="card"><h3 data-i18n="j4_h">Companies</h3><p data-i18n="j4_p">Partner on executive education and recruiting.</p></div>
+        <div class="card reveal"><h3 data-i18n="j1_h">Professors</h3><p data-i18n="j1_p">Teach a two-week course in your field.</p></div>
+        <div class="card reveal"><h3 data-i18n="j2_h">Supporters &amp; donors</h3><p data-i18n="j2_p">Fund a chair, a scholarship, or the campus.</p></div>
+        <div class="card reveal"><h3 data-i18n="j3_h">Future students</h3><p data-i18n="j3_p">Register your interest in a programme.</p></div>
+        <div class="card reveal"><h3 data-i18n="j4_h">Companies</h3><p data-i18n="j4_p">Partner on executive training and hiring.</p></div>
       </div>
-      <div class="contact">
-        <span data-i18n="contact_label" style="font-weight:600">Write to us:</span>
-        <span class="em" id="email">nafpliobusinessschool@gmail.com</span>
+      <div class="contact reveal">
+        <span data-i18n="contact_label" style="font-weight:700">Write to us:</span>
+        <span class="mail" id="email">nafpliobusinessschool@gmail.com</span>
         <button class="copy" id="copyBtn" data-i18n="contact_copy">Copy</button>
-        <span class="muted" style="font-size:.8rem" data-i18n="contact_note">(placeholder address — a real contact follows)</span>
       </div>
     </div>
   </section>
 
-  <footer>
+  <footer class="wave-mist">
     <div class="wrap">
       <div class="brand"><b data-i18n="brand">Nafplio School of Finance &amp; Business</b></div>
       <p class="legal" data-i18n="legal">A non-state institution (ΝΠΠΕ) to be established under Greek Law 5094/2024, as a branch of a partner university, on a non-profit basis. The name, the partner institution, figures and contact shown here are <span class="ph">placeholders</span> pending finalization.</p>
@@ -317,13 +386,13 @@
     nav_model:{en:"The Model",el:"Το Μοντέλο"},nav_nafplio:{en:"Nafplio",el:"Ναύπλιο"},nav_join:{en:"Join",el:"Συμμετοχή"},
     hero_eyebrow:{en:"A new graduate school · Est. in Nafplio",el:"Μια νέα σχολή μεταπτυχιακών · Με έδρα το Ναύπλιο"},
     hero_h1:{en:"World-class finance education, in the heart of Greece.",el:"Κορυφαία εκπαίδευση στα χρηματοοικονομικά, στην καρδιά της Ελλάδας."},
-    hero_lede:{en:"A new graduate school in Nafplio that brings the world's leading professors to teach in focused two-week intensives — degrees of international standing, rooted in Greece.",el:"Μια νέα σχολή μεταπτυχιακών στο Ναύπλιο που φέρνει κορυφαίους καθηγητές του κόσμου να διδάξουν σε εντατικά δίεβδομα — πτυχία διεθνούς κύρους, με ρίζες στην Ελλάδα."},
+    hero_lede:{en:"A new graduate school in Nafplio that brings the world's leading professors to teach focused two-week courses — degrees of international standing, rooted in Greece.",el:"Μια νέα σχολή μεταπτυχιακών στο Ναύπλιο που φέρνει κορυφαίους καθηγητές του κόσμου να διδάξουν εντατικά μαθήματα δύο εβδομάδων — πτυχία διεθνούς κύρους, με ρίζες στην Ελλάδα."},
     hero_cta1:{en:"Explore the vision",el:"Δες το όραμα"},hero_cta2:{en:"Join us",el:"Συμμετοχή"},
     vision_eyebrow:{en:"Our vision",el:"Το όραμά μας"},
     vision_h2:{en:"Greece has the minds. It deserves the school.",el:"Η Ελλάδα έχει τα μυαλά. Της αξίζει η σχολή."},
     vision_p:{en:"Greece has brilliant people and a global diaspora, yet no finance school of truly international standing. We are building one: a focused school of finance and business, taught by some of the best professors in the world, awarding recognized degrees, in the town that was the country's first capital. The aim is simple — keep talent in Greece, bring the world to it, and lift the place with it.",el:"Η Ελλάδα έχει λαμπρούς ανθρώπους και μια παγκόσμια διασπορά, μα καμία σχολή χρηματοοικονομικών πραγματικά διεθνούς κύρους. Χτίζουμε μία: μια εστιασμένη σχολή χρηματοοικονομικών και διοίκησης, με διδασκαλία από κορυφαίους καθηγητές του κόσμου, με αναγνωρισμένα πτυχία, στην πόλη που υπήρξε η πρώτη πρωτεύουσα της χώρας. Ο στόχος είναι απλός — να κρατήσουμε το ταλέντο στην Ελλάδα, να φέρουμε τον κόσμο σ' αυτήν, και ν' ανεβάσουμε τον τόπο μαζί."},
-    pil1_h:{en:"International faculty",el:"Διεθνές faculty"},pil1_p:{en:"Leading scholars from the world's top institutions.",el:"Κορυφαίοι ακαδημαϊκοί από τα κορυφαία ιδρύματα του κόσμου."},
-    pil2_h:{en:"Two-week intensives",el:"Εντατικά δίεβδομα"},pil2_p:{en:"A full course, condensed into two weeks of focused teaching.",el:"Ένα πλήρες μάθημα, συμπυκνωμένο σε δύο εβδομάδες εντατικής διδασκαλίας."},
+    pil1_h:{en:"International faculty",el:"Διεθνείς καθηγητές"},pil1_p:{en:"Leading scholars from the world's top institutions.",el:"Κορυφαίοι ακαδημαϊκοί από τα κορυφαία ιδρύματα του κόσμου."},
+    pil2_h:{en:"Two-week courses",el:"Μαθήματα δύο εβδομάδων"},pil2_p:{en:"A full course, condensed into two weeks of focused teaching.",el:"Ένα πλήρες μάθημα, συμπυκνωμένο σε δύο εβδομάδες εντατικής διδασκαλίας."},
     pil3_h:{en:"Recognized degrees",el:"Αναγνωρισμένα πτυχία"},pil3_p:{en:"Accredited under Greece's framework for non-state universities.",el:"Αναγνωρισμένα βάσει του πλαισίου για τα μη κρατικά πανεπιστήμια."},
     pil4_h:{en:"Based in Nafplio",el:"Με έδρα το Ναύπλιο"},pil4_p:{en:"The first capital of modern Greece, below the Palamidi.",el:"Η πρώτη πρωτεύουσα του νεότερου ελληνικού κράτους, κάτω από το Παλαμήδι."},
     prog_eyebrow:{en:"Programmes",el:"Προγράμματα"},
@@ -331,29 +400,32 @@
     prog_p:{en:"We begin with three graduate programmes, all taught in English, all built around the two-week model.",el:"Ξεκινάμε με τρία μεταπτυχιακά προγράμματα, όλα στα Αγγλικά, όλα χτισμένα γύρω από το μοντέλο των δύο εβδομάδων."},
     p1_tag:{en:"Full-time",el:"Πλήρους φοίτησης"},p1_h:{en:"MBA",el:"MBA"},p1_p:{en:"A general-management MBA for the next generation of leaders.",el:"Ένα MBA γενικής διοίκησης για τη νέα γενιά ηγετών."},p1_m:{en:"90 ECTS · taught in English",el:"90 ECTS · στα Αγγλικά"},
     p2_tag:{en:"Full-time",el:"Πλήρους φοίτησης"},p2_h:{en:"MSc in Finance",el:"MSc Finance"},p2_p:{en:"Technical and quantitative — a bridge to industry and to doctoral research.",el:"Τεχνικό και ποσοτικό — γέφυρα προς την αγορά και προς τη διδακτορική έρευνα."},p2_m:{en:"90 ECTS · taught in English",el:"90 ECTS · στα Αγγλικά"},
-    p3_tag:{en:"Executive",el:"Executive"},p3_h:{en:"Executive MBA",el:"Executive MBA"},p3_p:{en:"For experienced executives, in modular two-week blocks.",el:"Για έμπειρα στελέχη, σε modular δίεβδομα."},p3_m:{en:"90 ECTS · taught in English",el:"90 ECTS · στα Αγγλικά"},
+    p3_tag:{en:"Executive",el:"Στελεχών"},p3_h:{en:"Executive MBA",el:"Executive MBA"},p3_p:{en:"For experienced executives, in two-week blocks.",el:"Για έμπειρα στελέχη, σε ενότητες δύο εβδομάδων."},p3_m:{en:"90 ECTS · taught in English",el:"90 ECTS · στα Αγγλικά"},
     model_eyebrow:{en:"The two-week model",el:"Το μοντέλο των δύο εβδομάδων"},
-    model_h2:{en:"A full course, taught in a two-week residency.",el:"Ένα πλήρες μάθημα, σε μια διαμονή δύο εβδομάδων."},
-    model_p:{en:"Instead of a thirteen-week term, each course is taught as a focused two-week residency. A leading professor comes to Nafplio with their doctoral students and teaches an intensive block. Two weeks of teaching, and two weeks in Greece — a working holiday, a place in an innovative international faculty, and a way to give back. For students, it means access to scholars they would otherwise never meet.",el:"Αντί για ένα δεκατριάβδομο εξάμηνο, κάθε μάθημα διδάσκεται ως μια εστιασμένη διαμονή δύο εβδομάδων. Ένας κορυφαίος καθηγητής έρχεται στο Ναύπλιο με τους διδακτορικούς του φοιτητές και διδάσκει ένα εντατικό block. Δύο εβδομάδες διδασκαλία, και δύο εβδομάδες στην Ελλάδα — μια εργαζόμενη διακοπή, μια θέση σε ένα καινοτόμο διεθνές faculty, κι ένας τρόπος να δώσει πίσω. Για τους φοιτητές, σημαίνει πρόσβαση σε ακαδημαϊκούς που αλλιώς δεν θα συναντούσαν ποτέ."},
-    ww1_h:{en:"For professors",el:"Για τους καθηγητές"},ww1_p:{en:"Good pay, a fortnight in Nafplio, and standing in a new international faculty.",el:"Καλή αμοιβή, δύο εβδομάδες στο Ναύπλιο, και θέση σε ένα νέο διεθνές faculty."},
-    ww2_h:{en:"For students",el:"Για τους φοιτητές"},ww2_p:{en:"Direct teaching from world-leading names, in small boutique cohorts.",el:"Άμεση διδασκαλία από κορυφαία ονόματα, σε μικρές boutique κοόρτες."},
+    model_h2:{en:"A full course, taught over two weeks.",el:"Ένα πλήρες μάθημα, μέσα σε δύο εβδομάδες."},
+    model_p:{en:"Instead of a thirteen-week term, each course is taught in two focused weeks. A leading professor comes to Nafplio with their doctoral students and teaches an intensive course. Two weeks of teaching, and two weeks in Greece — work and holiday together, a place in a new international faculty, and a way to give back. For students, it means access to scholars they would otherwise never meet.",el:"Αντί για ένα εξάμηνο δεκατριών εβδομάδων, κάθε μάθημα διδάσκεται εντατικά μέσα σε δύο εβδομάδες. Ένας κορυφαίος καθηγητής έρχεται στο Ναύπλιο με τους διδακτορικούς του φοιτητές και διδάσκει ένα εντατικό μάθημα. Δύο εβδομάδες διδασκαλία και δύο εβδομάδες στην Ελλάδα — δουλειά και διακοπές μαζί, μια θέση σε ένα νέο διεθνές διδακτικό σώμα, κι ένας τρόπος να προσφέρουν. Για τους φοιτητές, σημαίνει πρόσβαση σε καθηγητές που αλλιώς δεν θα συναντούσαν ποτέ."},
+    ww1_h:{en:"For professors",el:"Για τους καθηγητές"},ww1_p:{en:"Good pay, two weeks in Nafplio, and standing in a new international faculty.",el:"Καλή αμοιβή, δύο εβδομάδες στο Ναύπλιο, και μια θέση σε ένα νέο διεθνές διδακτικό σώμα."},
+    ww2_h:{en:"For students",el:"Για τους φοιτητές"},ww2_p:{en:"Direct teaching from world-leading names, in small classes.",el:"Άμεση διδασκαλία από κορυφαία ονόματα, σε μικρά τμήματα."},
     ww3_h:{en:"For Greece",el:"Για την Ελλάδα"},ww3_p:{en:"Talent that stays, a town that rises, and a bridge to the diaspora.",el:"Ταλέντο που μένει, ένας τόπος που ανεβαίνει, και μια γέφυρα με τη διασπορά."},
     glance_eyebrow:{en:"The founding plan at a glance",el:"Το ιδρυτικό πλάνο με μια ματιά"},
     glance_h2:{en:"Small, selective, serious.",el:"Μικρό, επιλεκτικό, σοβαρό."},
     st1:{en:"graduate programmes",el:"μεταπτυχιακά προγράμματα"},st2:{en:"weeks per intensive course",el:"εβδομάδες ανά εντατικό μάθημα"},
-    st3:{en:"students per boutique cohort",el:"φοιτητές ανά boutique κοόρτη"},st4:{en:"ECTS per degree",el:"ECTS ανά πτυχίο"},
+    st3:{en:"students per class",el:"φοιτητές ανά τμήμα"},st4:{en:"ECTS per degree",el:"ECTS ανά πτυχίο"},
     glance_note:{en:"These figures describe the founding plan, not current enrolment.",el:"Τα νούμερα περιγράφουν το ιδρυτικό πλάνο, όχι τρέχουσες εγγραφές."},
     naf_eyebrow:{en:"Why Nafplio",el:"Γιατί Ναύπλιο"},
     naf_h2:{en:"The first capital of modern Greece.",el:"Η πρώτη πρωτεύουσα του νεότερου ελληνικού κράτους."},
     naf_p:{en:"Below the Palamidi fortress, on the Argolic Gulf, Nafplio is one of the most beautiful towns in Greece — and already home to Harvard's Center for Hellenic Studies. It is a place scholars want to come to, and a setting worthy of the ambition.",el:"Κάτω από το φρούριο του Παλαμηδίου, στον Αργολικό κόλπο, το Ναύπλιο είναι από τις ομορφότερες πόλεις της Ελλάδας — και ήδη έδρα του Κέντρου Ελληνικών Σπουδών του Harvard. Είναι ένας τόπος που οι ακαδημαϊκοί θέλουν να έρθουν, κι ένα σκηνικό αντάξιο της φιλοδοξίας."},
+    g1:{en:"The old town & the Bourtzi",el:"Η παλιά πόλη & το Μπούρτζι"},
+    g2:{en:"The Palamidi fortress",el:"Το φρούριο του Παλαμηδίου"},
+    g3:{en:"Streets of the old town",el:"Δρόμοι της παλιάς πόλης"},
+    g4:{en:"Arvanitia, below the walls",el:"Αρβανιτιά, κάτω από τα τείχη"},
     join_eyebrow:{en:"Join us",el:"Συμμετοχή"},
-    join_h2:{en:"We are talking to the people who can help build this.",el:"Μιλάμε με τους ανθρώπους που μπορούν να το χτίσουν αυτό."},
-    j1_h:{en:"Professors",el:"Καθηγητές"},j1_p:{en:"Teach a two-week intensive in your field.",el:"Διδάξτε ένα εντατικό δίεβδομο στο πεδίο σας."},
-    j2_h:{en:"Supporters & donors",el:"Υποστηρικτές & δωρητές"},j2_p:{en:"Endow a chair, a scholarship, or the campus.",el:"Χρηματοδοτήστε μια έδρα, μια υποτροφία, ή το campus."},
+    join_h2:{en:"We are talking to the people who can help build this.",el:"Μιλάμε με τους ανθρώπους που μπορούν να το χτίσουν."},
+    j1_h:{en:"Professors",el:"Καθηγητές"},j1_p:{en:"Teach a two-week course in your field.",el:"Διδάξτε ένα εντατικό μάθημα δύο εβδομάδων στον τομέα σας."},
+    j2_h:{en:"Supporters & donors",el:"Υποστηρικτές & δωρητές"},j2_p:{en:"Fund a chair, a scholarship, or the campus.",el:"Χρηματοδοτήστε μια έδρα, μια υποτροφία ή τις εγκαταστάσεις."},
     j3_h:{en:"Future students",el:"Μελλοντικοί φοιτητές"},j3_p:{en:"Register your interest in a programme.",el:"Δηλώστε το ενδιαφέρον σας για ένα πρόγραμμα."},
-    j4_h:{en:"Companies",el:"Εταιρείες"},j4_p:{en:"Partner on executive education and recruiting.",el:"Συνεργαστείτε σε executive education και recruiting."},
+    j4_h:{en:"Companies",el:"Εταιρείες"},j4_p:{en:"Partner on executive training and hiring.",el:"Συνεργαστείτε σε εκπαίδευση στελεχών και προσλήψεις."},
     contact_label:{en:"Write to us:",el:"Γράψτε μας:"},contact_copy:{en:"Copy",el:"Αντιγραφή"},
-    contact_note:{en:"(placeholder address — a real contact follows)",el:"(προσωρινή διεύθυνση — ακολουθεί πραγματική επαφή)"},
     legal:{en:'A non-state institution (ΝΠΠΕ) to be established under Greek Law 5094/2024, as a branch of a partner university, on a non-profit basis. The name, the partner institution, figures and contact shown here are placeholders pending finalization.',el:'Μη κρατικό ίδρυμα (ΝΠΠΕ) προς σύσταση βάσει του ν. 5094/2024, ως παράρτημα πανεπιστημίου-εταίρου, σε μη κερδοσκοπική βάση. Το όνομα, το ίδρυμα-εταίρος, τα νούμερα και η επαφή που εμφανίζονται εδώ είναι προσωρινά, εν αναμονή οριστικοποίησης.'}
   };
   var lang="en";
@@ -379,11 +451,35 @@
     langBtns[i].addEventListener("click",function(){setLang(this.getAttribute("data-lang"));});
   }
 
+  // ---- scroll reveal (staggered) ----
+  var reveals=document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window && reveals.length){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e,i){
+        if(e.isIntersecting){
+          var el=e.target;
+          setTimeout(function(){el.classList.add("visible");}, i*70);
+          io.unobserve(el);
+        }
+      });
+    },{threshold:.12});
+    reveals.forEach(function(r){io.observe(r);});
+  }else{
+    reveals.forEach(function(r){r.classList.add("visible");});
+  }
+
+  // ---- hero decorative rings (blue/teal) ----
+  var rings=document.querySelector(".hero-rings");
+  if(rings){
+    rings.style.backgroundImage="url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='250' fill='none' stroke='%231d6fb8' stroke-width='2' stroke-dasharray='5 15' opacity='0.28'/%3E%3Ccircle cx='300' cy='300' r='292' fill='none' stroke='%232d7d8a' stroke-width='2' stroke-dasharray='3 17' opacity='0.22'/%3E%3Ccircle cx='110' cy='130' r='32' fill='none' stroke='%231d6fb8' stroke-width='1.5' opacity='0.22'/%3E%3Ccircle cx='500' cy='480' r='18' fill='none' stroke='%232d7d8a' stroke-width='1.5' opacity='0.22'/%3E%3C/svg%3E\")";
+  }
+
+  // ---- copy email ----
   var copyBtn=document.getElementById("copyBtn");
   if(copyBtn){
     copyBtn.addEventListener("click",function(){
       var email=document.getElementById("email").textContent.trim();
-      var done=function(){var o=copyBtn.textContent;copyBtn.textContent=(lang==="el"?"Αντιγράφηκε":"Copied");setTimeout(function(){copyBtn.textContent=dict.contact_copy[lang];},1400);};
+      var done=function(){copyBtn.textContent=(lang==="el"?"Αντιγράφηκε":"Copied");setTimeout(function(){copyBtn.textContent=dict.contact_copy[lang];},1400);};
       if(navigator.clipboard&&navigator.clipboard.writeText){
         navigator.clipboard.writeText(email).then(done).catch(function(){
           var r=document.createRange();r.selectNode(document.getElementById("email"));
@@ -396,17 +492,18 @@
     });
   }
 
+  // ---- mobile menu ----
   var menuBtn=document.getElementById("menuBtn"),navEl=document.getElementById("nav");
   if(menuBtn&&navEl){
     menuBtn.addEventListener("click",function(){
       var open=navEl.style.display==="flex";
       navEl.style.display=open?"":"flex";
       if(!open){navEl.style.position="absolute";navEl.style.flexDirection="column";
-        navEl.style.top="64px";navEl.style.right="20px";navEl.style.background="var(--bg)";
-        navEl.style.border="1px solid var(--line)";navEl.style.borderRadius="12px";
-        navEl.style.padding="14px 18px";navEl.style.gap="12px";navEl.style.boxShadow="0 10px 30px rgba(0,0,0,.12)";}
+        navEl.style.top="70px";navEl.style.right="22px";navEl.style.background="var(--white)";
+        navEl.style.border="1px solid var(--border)";navEl.style.borderRadius="12px";
+        navEl.style.padding="14px 18px";navEl.style.gap="8px";navEl.style.boxShadow="0 10px 30px rgba(15,39,64,.14)";}
     });
-    navEl.addEventListener("click",function(e){if(e.target.tagName==="A"&&window.innerWidth<=860){navEl.style.display="";}});
+    navEl.addEventListener("click",function(e){if(e.target.tagName==="A"&&window.innerWidth<=980){navEl.style.display="";}});
   }
 
   apply();
