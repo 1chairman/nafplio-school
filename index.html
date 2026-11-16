@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Nafplio School of Finance & Business — a new graduate school in Nafplio, Greece.">
 <style>
-  html{-webkit-text-size-adjust:100%}
+  html{-webkit-text-size-adjust:100%;font-size:16px}
   body{margin:0}
   img{max-width:100%;height:auto;display:block}
   [hidden]{display:none!important}
@@ -150,7 +150,7 @@
   .stat .lab{margin-top:10px;font-size:.92rem;color:var(--mid)}
 
   /* ---- gallery ---- */
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+  .gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:48px}
   figure.shot{margin:0;border-radius:var(--radius);overflow:hidden;position:relative;border:1px solid var(--border-soft);
     box-shadow:0 8px 24px rgba(15,39,64,.06)}
   figure.shot img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2;transition:transform .5s ease}
@@ -176,6 +176,23 @@
   footer .brand b{color:var(--ink)}
   footer .legal{max-width:72ch;margin-top:12px;color:var(--mid)}
   .ph{color:var(--accent);font-weight:600}
+
+  /* ---- vision top: text + tall feature image ---- */
+  .vision-top{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+  .feature{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border-soft)}
+  .feature img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+
+  /* ---- full-width image band ---- */
+  .band{position:relative;min-height:400px;display:grid;place-items:center;overflow:hidden;padding-block:0}
+  .band::before{content:none}
+  .band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,38,.34),rgba(10,22,38,.60))}
+  .band .band-text{position:relative;z-index:2;color:#fff;text-align:center;max-width:22ch;padding:0 22px;
+    font-size:clamp(1.5rem,3.2vw,2.3rem);font-weight:700;letter-spacing:-.01em;line-height:1.2;text-shadow:0 2px 22px rgba(0,0,0,.35)}
+
+  /* ---- model media ---- */
+  .model-media{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border-soft);align-self:stretch}
+  .model-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
 
   /* ---- reveal-on-scroll (estia-style movement); content stays visible without JS ---- */
   .reveal{opacity:1}
@@ -209,7 +226,8 @@
     .progs,.join{grid-template-columns:1fr 1fr}
     .model-grid{grid-template-columns:1fr;gap:32px}
     .stats{grid-template-columns:repeat(2,1fr)}
-    .gallery{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-template-columns:repeat(3,1fr)}
+    .vision-top{grid-template-columns:1fr;gap:34px}
     nav.links{display:none}
     .menu-btn{display:inline-flex;align-items:center;justify-content:center}
   }
@@ -218,6 +236,7 @@
     .hero{padding-block:56px 72px}
     .pillars,.progs,.join,.stats{grid-template-columns:1fr}
     .gallery{grid-template-columns:1fr 1fr}
+    .band{min-height:300px}
   }
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 </style>
@@ -269,10 +288,13 @@
 
   <section id="vision" class="bg-mist wave-mist">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="vision_eyebrow">Our vision</p>
-        <h2 data-i18n="vision_h2">Greece has the minds. It deserves the school.</h2>
-        <p data-i18n="vision_p">Greece has brilliant people and a global diaspora, yet no finance school of truly international standing. We are building one: a focused school of finance and business, taught by some of the best professors in the world, awarding recognized degrees, in the town that was the country's first capital. The aim is simple — keep talent in Greece, bring the world to it, and lift the place with it.</p>
+      <div class="vision-top">
+        <div class="sec-head reveal">
+          <p class="eyebrow" data-i18n="vision_eyebrow">Our vision</p>
+          <h2 data-i18n="vision_h2">Greece has the minds. It deserves the school.</h2>
+          <p data-i18n="vision_p">Greece has brilliant people and a global diaspora, yet no finance school of truly international standing. We are building one: a focused school of finance and business, taught by some of the best professors in the world, awarding recognized degrees, in the town that was the country's first capital. The aim is simple — keep talent in Greece, bring the world to it, and lift the place with it.</p>
+        </div>
+        <div class="feature reveal"><img src="images/feature-vision.jpg" alt="View over Nafplio old town and the bay, framed by a stone arch of the fortress"></div>
       </div>
       <div class="pillars">
         <div class="pillar reveal"><div class="n">I</div><h3 data-i18n="pil1_h">International faculty</h3><p data-i18n="pil1_p">Leading scholars from the world's top institutions.</p></div>
@@ -298,6 +320,11 @@
     </div>
   </section>
 
+  <section class="band reveal" aria-label="Nafplio and the Argolic Gulf">
+    <img src="images/band-1.jpg" alt="Panoramic view over Nafplio and the Argolic Gulf">
+    <p class="band-text" data-i18n="band1_q">Below the Palamidi, on the Argolic Gulf.</p>
+  </section>
+
   <section id="model" class="bg-mist wave-mist">
     <div class="wrap">
       <div class="model-grid">
@@ -305,12 +332,13 @@
           <p class="eyebrow" data-i18n="model_eyebrow">The two-week model</p>
           <h2 data-i18n="model_h2">A full course, taught over two weeks.</h2>
           <p class="lede" data-i18n="model_p">Instead of a thirteen-week term, each course is taught in two focused weeks. A leading professor comes to Nafplio with their doctoral students and teaches an intensive course. Two weeks of teaching, and two weeks in Greece — work and holiday together, a place in a new international faculty, and a way to give back. For students, it means access to scholars they would otherwise never meet.</p>
+          <div class="winwin">
+            <div><h4 data-i18n="ww1_h">For professors</h4><p data-i18n="ww1_p">Good pay, two weeks in Nafplio, and standing in a new international faculty.</p></div>
+            <div><h4 data-i18n="ww2_h">For students</h4><p data-i18n="ww2_p">Direct teaching from world-leading names, in small classes.</p></div>
+            <div><h4 data-i18n="ww3_h">For Greece</h4><p data-i18n="ww3_p">Talent that stays, a town that rises, and a bridge to the diaspora.</p></div>
+          </div>
         </div>
-        <div class="winwin reveal">
-          <div><h4 data-i18n="ww1_h">For professors</h4><p data-i18n="ww1_p">Good pay, two weeks in Nafplio, and standing in a new international faculty.</p></div>
-          <div><h4 data-i18n="ww2_h">For students</h4><p data-i18n="ww2_p">Direct teaching from world-leading names, in small classes.</p></div>
-          <div><h4 data-i18n="ww3_h">For Greece</h4><p data-i18n="ww3_p">Talent that stays, a town that rises, and a bridge to the diaspora.</p></div>
-        </div>
+        <div class="model-media reveal"><img src="images/feature-model.jpg" alt="View of Nafplio and the sea through a stone window of the fortress"></div>
       </div>
     </div>
   </section>
@@ -324,7 +352,7 @@
       <div class="stats">
         <div class="stat reveal"><div class="big">3</div><div class="lab" data-i18n="st1">graduate programmes</div></div>
         <div class="stat reveal"><div class="big">2</div><div class="lab" data-i18n="st2">weeks per intensive course</div></div>
-        <div class="stat reveal"><div class="big">20–40</div><div class="lab" data-i18n="st3">students per class</div></div>
+        <div class="stat reveal"><div class="big">35</div><div class="lab" data-i18n="st3">students per class</div></div>
         <div class="stat reveal"><div class="big">90</div><div class="lab" data-i18n="st4">ECTS per degree</div></div>
       </div>
       <p class="muted reveal" style="margin-top:24px;font-size:.86rem" data-i18n="glance_note">These figures describe the founding plan, not current enrolment.</p>
@@ -343,8 +371,19 @@
         <figure class="shot reveal"><img src="images/naf-2.jpg" alt="The Palamidi fortress on the hill above Nafplio"><figcaption data-i18n="g2">The Palamidi fortress</figcaption></figure>
         <figure class="shot reveal"><img src="images/naf-3.jpg" alt="A narrow street in Nafplio with bougainvillea"><figcaption data-i18n="g3">Streets of the old town</figcaption></figure>
         <figure class="shot reveal"><img src="images/naf-4.jpg" alt="Arvanitia beach below the walls of Nafplio"><figcaption data-i18n="g4">Arvanitia, below the walls</figcaption></figure>
+        <figure class="shot reveal"><img src="images/naf-5.jpg" alt="A pedestrian street in Nafplio old town in summer"><figcaption data-i18n="g5">The streets, in summer</figcaption></figure>
+        <figure class="shot reveal"><img src="images/naf-6.jpg" alt="A quiet old-town street in Nafplio with green shutters"><figcaption data-i18n="g6">Old-town corners</figcaption></figure>
+        <figure class="shot reveal"><img src="images/naf-7.jpg" alt="Aerial view of the beach at Tolo, near Nafplio"><figcaption data-i18n="g7">Beaches nearby</figcaption></figure>
+        <figure class="shot reveal"><img src="images/naf-8.jpg" alt="The Bourtzi fortress at dusk"><figcaption data-i18n="g8">The Bourtzi at dusk</figcaption></figure>
+        <figure class="shot reveal"><img src="images/naf-9.jpg" alt="Fishing boats in the harbour of Nafplio"><figcaption data-i18n="g9">The harbour</figcaption></figure>
+        <figure class="shot reveal"><img src="images/naf-10.jpg" alt="The Nafplio seafront"><figcaption data-i18n="g10">The seafront, in a different light</figcaption></figure>
       </div>
     </div>
+  </section>
+
+  <section class="band reveal" aria-label="The Nafplio seafront">
+    <img src="images/band-2.jpg" alt="The Nafplio seafront promenade with the Bourtzi fortress offshore">
+    <p class="band-text" data-i18n="band2_q">A setting worthy of the ambition.</p>
   </section>
 
   <section id="join" class="bg-mist wave-mist">
@@ -367,7 +406,7 @@
     </div>
   </section>
 
-  <footer class="wave-mist">
+  <footer class="wave-paper">
     <div class="wrap">
       <div class="brand"><b data-i18n="brand">Nafplio School of Finance &amp; Business</b></div>
       <p class="legal" data-i18n="legal">A non-state institution (ΝΠΠΕ) to be established under Greek Law 5094/2024, as a branch of a partner university, on a non-profit basis. The name, the partner institution, figures and contact shown here are <span class="ph">placeholders</span> pending finalization.</p>
@@ -419,6 +458,14 @@
     g2:{en:"The Palamidi fortress",el:"Το φρούριο του Παλαμηδίου"},
     g3:{en:"Streets of the old town",el:"Δρόμοι της παλιάς πόλης"},
     g4:{en:"Arvanitia, below the walls",el:"Αρβανιτιά, κάτω από τα τείχη"},
+    g5:{en:"The streets, in summer",el:"Οι δρόμοι, καλοκαίρι"},
+    g6:{en:"Old-town corners",el:"Γωνιές της παλιάς πόλης"},
+    g7:{en:"Beaches nearby",el:"Παραλίες τριγύρω"},
+    g8:{en:"The Bourtzi at dusk",el:"Το Μπούρτζι το σούρουπο"},
+    g9:{en:"The harbour",el:"Το λιμάνι"},
+    g10:{en:"The seafront, in a different light",el:"Η παραλία, σε άλλο φως"},
+    band1_q:{en:"Below the Palamidi, on the Argolic Gulf.",el:"Κάτω από το Παλαμήδι, στον Αργολικό κόλπο."},
+    band2_q:{en:"A setting worthy of the ambition.",el:"Ένα σκηνικό αντάξιο της φιλοδοξίας."},
     join_eyebrow:{en:"Join us",el:"Συμμετοχή"},
     join_h2:{en:"We are talking to the people who can help build this.",el:"Μιλάμε με τους ανθρώπους που μπορούν να το χτίσουν."},
     j1_h:{en:"Professors",el:"Καθηγητές"},j1_p:{en:"Teach a two-week course in your field.",el:"Διδάξτε ένα εντατικό μάθημα δύο εβδομάδων στον τομέα σας."},
